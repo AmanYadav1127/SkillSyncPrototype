@@ -1,7 +1,9 @@
+import { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
-import { ArrowRight, AlertTriangle, CheckCircle2, Info } from 'lucide-react'
+import { ArrowRight, AlertTriangle, Info, ArrowLeft } from 'lucide-react'
 import { skillGaps, radarData } from '../data/mockData'
+import { getStudentProfile } from '../utils/storage'
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer, Legend, Tooltip } from 'recharts'
 
 function LevelBadge({ level }){
@@ -28,22 +30,59 @@ function PriorityBadge({ p }){
 }
 
 export default function SkillGap(){
+  const [profile, setProfile] = useState(getStudentProfile())
+
+  useEffect(() => {
+    const handleUpdate = () => setProfile(getStudentProfile())
+    window.addEventListener('skillsync_storage_update', handleUpdate)
+    window.addEventListener('storage', handleUpdate)
+    return () => {
+      window.removeEventListener('skillsync_storage_update', handleUpdate)
+      window.removeEventListener('storage', handleUpdate)
+    }
+  }, [])
+
   return (
     <div className="min-h-screen bg-[#f8fafc]">
       <Navbar/>
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
           <div>
+            <Link to="/student" className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-slate-800 mb-2">
+              <ArrowLeft size={14} /> Back to Dashboard
+            </Link>
             <h1 className="text-[24px] font-extrabold text-[#0B2447]">Your Industry Skill Gap</h1>
-            <p className="text-sm text-slate-600">Compare your current skills with what companies are looking for.</p>
+            <p className="text-sm text-slate-600">Compare your profile skills with employer standards for {profile.targetRole}.</p>
           </div>
-          <Link to="/student/recommendations" className="inline-flex items-center gap-2 bg-[#0B2447] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#12325f]">View Recommended Courses <ArrowRight size={16}/></Link>
+          <div className="flex items-center gap-2">
+            <Link to="/student#industry-jobs" className="inline-flex items-center gap-2 bg-white border border-slate-200 text-[#0B2447] px-4 py-2.5 rounded-full text-xs font-bold hover:bg-slate-50">
+              Analyze Specific Job Gaps
+            </Link>
+            <Link to="/student/recommendations" className="inline-flex items-center gap-2 bg-[#0B2447] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#12325f]">
+              View Recommended Courses <ArrowRight size={16}/>
+            </Link>
+          </div>
+        </div>
+
+        {/* Profile Skills Quick Chip Bar */}
+        <div className="mt-4 bg-white border border-slate-200 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="font-bold text-[#0B2447]">Your Profile Skills ({profile.skills.length}):</span>
+            {profile.skills.map(s => (
+              <span key={s} className="px-2.5 py-0.5 bg-slate-100 text-slate-800 rounded-full font-medium">
+                {s}
+              </span>
+            ))}
+          </div>
+          <Link to="/student#skills-section" className="text-blue-600 font-bold hover:underline shrink-0">
+            Edit Profile Skills →
+          </Link>
         </div>
 
         <div className="mt-6 bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
           <div className="px-5 py-4 border-b border-slate-200 flex items-center justify-between">
-            <h3 className="text-sm font-bold text-[#0B2447]">Skill Comparison • Target Role: Full Stack Developer</h3>
-            <span className="text-xs bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-full font-semibold text-slate-600">6 skills evaluated</span>
+            <h3 className="text-sm font-bold text-[#0B2447]">Statewide Skill Benchmark • Target Role: {profile.targetRole}</h3>
+            <span className="text-xs bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-full font-semibold text-slate-600">6 core competencies evaluated</span>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
