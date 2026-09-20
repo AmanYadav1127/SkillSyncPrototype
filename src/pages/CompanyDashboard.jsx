@@ -164,36 +164,36 @@ export default function CompanyDashboard() {
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-2xl bg-[#0B2447] text-white flex items-center justify-center shadow-sm">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#0B2447] text-white flex items-center justify-center shadow-xs shrink-0">
               <Building2 size={22} />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-[20px] lg:text-[22px] font-extrabold text-[#0B2447] leading-tight">
+              <div className="flex items-center gap-2 flex-wrap">
+                <h1 className="text-xl sm:text-2xl font-extrabold text-[#0B2447] leading-tight">
                   {companyName}
                 </h1>
                 <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">
                   Verified Employer
                 </span>
               </div>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-500 mt-0.5">
                 Information Technology • Bangalore & Pune, India
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 flex-wrap">
+          <div className="flex items-center gap-2.5 flex-wrap w-full sm:w-auto">
             <button
               onClick={handleOpenPostModal}
-              className="inline-flex items-center gap-2 bg-[#0B2447] text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-[#12325f] shadow-sm transition"
+              className="inline-flex items-center justify-center gap-2 bg-[#0B2447] text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold hover:bg-[#12325f] shadow-xs transition flex-1 sm:flex-none"
             >
               <Plus size={18} /> Post a Job
             </button>
             <Link
               to="/company/requirements"
-              className="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 px-4 py-2.5 rounded-full text-sm font-semibold hover:bg-slate-50 transition"
+              className="inline-flex items-center justify-center gap-2 bg-white border border-slate-200 text-slate-700 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold hover:bg-slate-50 transition flex-1 sm:flex-none"
             >
               Skill Requirements <ArrowRight size={15} />
             </Link>

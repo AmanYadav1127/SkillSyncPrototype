@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import { courseGapTable, generativeAIDetail } from '../data/mockData'
-import { X, Sparkles, FileText, CheckCircle2, AlertTriangle } from 'lucide-react'
+import { X, Sparkles, FileText, CheckCircle2, AlertTriangle, ArrowLeft } from 'lucide-react'
 import Toast from '../components/Toast'
 
 export default function GovCourseGap(){
@@ -14,8 +15,11 @@ export default function GovCourseGap(){
       <Navbar/>
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div>
-          <h1 className="text-[24px] font-extrabold text-[#0B2447]">Industry Demand vs Training Coverage</h1>
-          <p className="text-sm text-slate-600">Identify where existing skill-development programs are not meeting industry demand.</p>
+          <Link to="/government" className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-slate-800 mb-2">
+            <ArrowLeft size={14} /> Back to Dashboard
+          </Link>
+          <h1 className="text-xl sm:text-2xl font-extrabold text-[#0B2447]">Industry Demand vs Training Coverage</h1>
+          <p className="text-xs sm:text-sm text-slate-600 mt-0.5">Identify where existing skill-development programs are not meeting industry demand.</p>
         </div>
 
         <div className="mt-6 bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">

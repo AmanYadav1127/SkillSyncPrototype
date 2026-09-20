@@ -1,6 +1,6 @@
 import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
-import { Clock, BarChart3, Award, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { Clock, BarChart3, Award, ArrowRight, CheckCircle2, ArrowLeft } from 'lucide-react'
 import { courses } from '../data/mockData'
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip, CartesianGrid, Cell } from 'recharts'
 
@@ -14,11 +14,14 @@ export default function CourseRecommendations(){
       <Navbar/>
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div>
-          <h1 className="text-[24px] font-extrabold text-[#0B2447]">Recommended For You</h1>
-          <p className="text-sm text-slate-600">Courses selected based on your skill gaps and industry demand.</p>
+          <Link to="/student" className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-slate-800 mb-2">
+            <ArrowLeft size={14} /> Back to Dashboard
+          </Link>
+          <h1 className="text-xl sm:text-2xl font-extrabold text-[#0B2447]">Recommended For You</h1>
+          <p className="text-xs sm:text-sm text-slate-600 mt-0.5">Courses selected based on your skill gaps and industry demand.</p>
         </div>
 
-        <div className="mt-5 bg-gradient-to-r from-[#0B2447] to-[#1e4a8a] rounded-2xl p-5 lg:p-6 text-white flex flex-col lg:flex-row items-center gap-6">
+        <div className="mt-5 bg-gradient-to-r from-[#0B2447] to-[#1e4a8a] rounded-2xl p-4 sm:p-5 lg:p-6 text-white flex flex-col lg:flex-row items-center gap-6">
           <div className="flex-1">
             <div className="inline-flex items-center gap-2 bg-white/15 border border-white/20 rounded-full px-3 py-1 text-xs font-bold tracking-wide">✨ PERSONALIZED RECOMMENDATION</div>
             <p className="mt-3 text-[15px] font-semibold leading-relaxed">Completing these courses could increase your projected industry readiness from <span className="bg-white text-[#0B2447] px-2 py-0.5 rounded font-extrabold">72%</span> → <span className="bg-emerald-400 text-[#0B2447] px-2 py-0.5 rounded font-extrabold">91%</span>.</p>

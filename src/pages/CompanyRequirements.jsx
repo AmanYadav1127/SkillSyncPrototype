@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Toast from '../components/Toast'
-import { Plus, Trash2, Save, Info } from 'lucide-react'
+import { Plus, Trash2, Save, Info, ArrowLeft } from 'lucide-react'
 
 const levels = ["Beginner","Elementary","Intermediate","Advanced","Expert"]
 const importances = ["Low","Medium","High","Critical"]
@@ -33,8 +34,11 @@ export default function CompanyRequirements(){
       <Navbar/>
       <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div>
-          <h1 className="text-[24px] font-extrabold text-[#0B2447]">Define Skill Requirements</h1>
-          <p className="text-sm text-slate-600">Tell the platform what skills your company needs.</p>
+          <Link to="/company" className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-slate-800 mb-2">
+            <ArrowLeft size={14} /> Back to Dashboard
+          </Link>
+          <h1 className="text-xl sm:text-2xl font-extrabold text-[#0B2447]">Define Skill Requirements</h1>
+          <p className="text-xs sm:text-sm text-slate-600 mt-0.5">Tell the platform what skills your company needs.</p>
         </div>
 
         <div className="mt-6 bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">

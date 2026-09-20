@@ -133,25 +133,25 @@ export default function StudentDashboard(){
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-[22px] lg:text-[26px] font-extrabold text-[#0B2447]">
+            <h1 className="text-xl sm:text-2xl lg:text-[26px] font-extrabold text-[#0B2447]">
               Good morning, {profile.name} 👋
             </h1>
-            <p className="text-sm text-slate-600">
+            <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
               Let’s get you industry-ready. <span className="font-semibold text-slate-800">{profile.education}</span> • Target: <span className="text-[#0B2447] font-bold">{profile.targetRole}</span>
             </p>
           </div>
-          <div className="flex items-center gap-2.5 flex-wrap">
+          <div className="flex items-center gap-2.5 flex-wrap w-full sm:w-auto">
             <a 
               href="#industry-jobs"
-              className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 border border-blue-200 px-4 py-2.5 rounded-full text-xs font-bold hover:bg-blue-100 transition"
+              className="inline-flex items-center justify-center gap-2 bg-blue-50 text-blue-700 border border-blue-200 px-4 py-2.5 rounded-full text-xs font-bold hover:bg-blue-100 transition flex-1 sm:flex-none"
             >
               <Briefcase size={14}/> Explore Jobs ({jobs.length})
             </a>
             <Link 
               to="/student/skill-gap" 
-              className="inline-flex items-center gap-2 bg-[#0B2447] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#12325f] shadow-sm transition"
+              className="inline-flex items-center justify-center gap-2 bg-[#0B2447] text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold hover:bg-[#12325f] shadow-xs transition flex-1 sm:flex-none"
             >
               Full Skill Gap Analysis <ArrowRight size={16}/>
             </Link>
@@ -159,7 +159,7 @@ export default function StudentDashboard(){
         </div>
 
         {/* 1. Student Profile & Skills Management Section */}
-        <div id="skills-section" className="mt-6 bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+        <div id="skills-section" className="mt-6 bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-sm">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-100">
             <div>
               <div className="flex items-center gap-2">
@@ -176,17 +176,17 @@ export default function StudentDashboard(){
             </div>
 
             {/* Add Skill Form */}
-            <form onSubmit={handleAddSkill} className="flex items-center gap-2">
+            <form onSubmit={handleAddSkill} className="flex items-center gap-2 w-full sm:w-auto">
               <input
                 type="text"
                 value={newSkillInput}
                 onChange={(e) => setNewSkillInput(e.target.value)}
-                placeholder="Add skill (e.g. Spring Boot, Docker)..."
-                className="px-3 py-1.5 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0B2447] font-medium w-[220px]"
+                placeholder="Add skill (e.g. Spring Boot)..."
+                className="px-3 py-1.5 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0B2447] font-medium flex-1 sm:w-[220px]"
               />
               <button
                 type="submit"
-                className="inline-flex items-center gap-1 bg-[#0B2447] text-white px-3 py-1.5 rounded-xl text-xs font-bold hover:bg-[#12325f] transition shadow-sm"
+                className="inline-flex items-center gap-1 bg-[#0B2447] text-white px-3 py-1.5 rounded-xl text-xs font-bold hover:bg-[#12325f] transition shadow-xs shrink-0"
               >
                 <Plus size={14} /> Add Skill
               </button>
@@ -217,24 +217,24 @@ export default function StudentDashboard(){
         {/* 2. Readiness & Top Gaps Overview */}
         <div className="mt-6 grid lg:grid-cols-[360px_1fr] gap-6">
           {/* Readiness Card */}
-          <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+          <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-sm">
             <div className="text-xs font-bold tracking-widest text-slate-500">INDUSTRY READINESS SCORE</div>
-            <div className="mt-4 flex items-center gap-5">
+            <div className="mt-4 flex flex-col sm:flex-row items-center gap-4 sm:gap-5 text-center sm:text-left">
               <CircularProgress value={profile.readiness || 72}/>
               <div className="space-y-2 text-sm">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-center sm:justify-start gap-2">
                   <CheckCircle2 size={16} className="text-emerald-600"/>
                   <span className="font-semibold">{profile.skills.length} Skills Added</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-center sm:justify-start gap-2">
                   <Briefcase size={16} className="text-blue-600"/>
                   <span className="font-semibold">{jobs.length} Active Jobs</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-center sm:justify-start gap-2">
                   <Award size={16} className="text-amber-500"/>
                   <span className="font-semibold">{camps.length} State Camps</span>
                 </div>
-                <div className="mt-3 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 text-xs text-amber-800">
+                <div className="mt-3 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 text-xs text-amber-800 text-left">
                   Adding missing skills will immediately increase your job match scores.
                 </div>
               </div>

@@ -46,19 +46,19 @@ export default function SkillGap(){
     <div className="min-h-screen bg-[#f8fafc]">
       <Navbar/>
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
             <Link to="/student" className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-slate-800 mb-2">
               <ArrowLeft size={14} /> Back to Dashboard
             </Link>
-            <h1 className="text-[24px] font-extrabold text-[#0B2447]">Your Industry Skill Gap</h1>
-            <p className="text-sm text-slate-600">Compare your profile skills with employer standards for {profile.targetRole}.</p>
+            <h1 className="text-xl sm:text-2xl font-extrabold text-[#0B2447]">Your Industry Skill Gap</h1>
+            <p className="text-xs sm:text-sm text-slate-600 mt-0.5">Compare your profile skills with employer standards for {profile.targetRole}.</p>
           </div>
-          <div className="flex items-center gap-2">
-            <Link to="/student#industry-jobs" className="inline-flex items-center gap-2 bg-white border border-slate-200 text-[#0B2447] px-4 py-2.5 rounded-full text-xs font-bold hover:bg-slate-50">
+          <div className="flex items-center gap-2 flex-wrap w-full sm:w-auto">
+            <Link to="/student#industry-jobs" className="inline-flex items-center justify-center gap-2 bg-white border border-slate-200 text-[#0B2447] px-4 py-2.5 rounded-full text-xs font-bold hover:bg-slate-50 transition flex-1 sm:flex-none">
               Analyze Specific Job Gaps
             </Link>
-            <Link to="/student/recommendations" className="inline-flex items-center gap-2 bg-[#0B2447] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#12325f]">
+            <Link to="/student/recommendations" className="inline-flex items-center justify-center gap-2 bg-[#0B2447] text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold hover:bg-[#12325f] shadow-xs transition flex-1 sm:flex-none">
               View Recommended Courses <ArrowRight size={16}/>
             </Link>
           </div>

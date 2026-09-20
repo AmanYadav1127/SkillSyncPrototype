@@ -247,30 +247,30 @@ export default function GovDashboard() {
             <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-full px-3 py-1 text-xs font-bold text-amber-800">
               🏛️ GOVERNMENT • STATE SKILL INTELLIGENCE
             </div>
-            <h1 className="mt-2 text-[22px] lg:text-[24px] font-extrabold text-[#0B2447]">
+            <h1 className="mt-2 text-xl sm:text-2xl font-extrabold text-[#0B2447] tracking-tight">
               Maharashtra Skill Intelligence & Governance
             </h1>
-            <p className="text-xs sm:text-sm text-slate-600">
+            <p className="text-xs sm:text-sm text-slate-600 mt-1">
               Publish skill camps, sponsor opportunities, track industry demand, and close workforce readiness gaps.
             </p>
           </div>
 
-          <div className="flex items-center gap-2.5 flex-wrap">
+          <div className="flex items-center gap-2 sm:gap-2.5 flex-wrap w-full lg:w-auto">
             <button
               onClick={handleOpenCreateCamp}
-              className="inline-flex items-center gap-1.5 bg-[#0B2447] text-white px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold hover:bg-[#12325f] shadow-sm transition"
+              className="inline-flex items-center justify-center gap-1.5 bg-[#0B2447] text-white px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold hover:bg-[#12325f] shadow-xs transition flex-1 sm:flex-none"
             >
               <Plus size={16} /> Create Skill Camp
             </button>
             <button
               onClick={handleOpenCreateOpp}
-              className="inline-flex items-center gap-1.5 bg-amber-600 text-white px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold hover:bg-amber-700 shadow-sm transition"
+              className="inline-flex items-center justify-center gap-1.5 bg-amber-600 text-white px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold hover:bg-amber-700 shadow-xs transition flex-1 sm:flex-none"
             >
               <Plus size={16} /> Post Opportunity
             </button>
             <Link
               to="/government/course-gaps"
-              className="inline-flex items-center gap-1.5 bg-white border border-slate-200 text-slate-700 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold hover:bg-slate-50 transition"
+              className="inline-flex items-center justify-center gap-1.5 bg-white border border-slate-200 text-slate-700 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold hover:bg-slate-50 transition flex-1 sm:flex-none"
             >
               Course Gaps <ArrowRight size={15} />
             </Link>

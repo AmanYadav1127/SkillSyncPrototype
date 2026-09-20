@@ -7,38 +7,38 @@ export default function Landing() {
     <div className="min-h-screen bg-[#f8fafc]">
       <Navbar />
       {/* Hero */}
-      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 lg:pt-16 pb-8">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 lg:pt-16 pb-8">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-10 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-3 py-1 text-xs font-semibold text-slate-600 shadow-sm">
               <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
               LIVE SKILL INTELLIGENCE • MAHARASHTRA DEMO
             </div>
-            <h1 className="mt-5 text-[32px] sm:text-[44px] lg:text-[48px] font-extrabold leading-[0.95] tracking-tight text-[#0B2447]">
-              Bridging the gap<br/>between <span className="text-[#2563eb]">education</span><br/>and industry.
+            <h1 className="mt-4 sm:mt-5 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-[#0B2447]">
+              Bridging the gap <br className="hidden sm:inline" />between <span className="text-[#2563eb]">education</span> <br className="hidden sm:inline" />and industry.
             </h1>
-            <p className="mt-4 text-[16px] lg:text-[18px] leading-relaxed text-slate-600 max-w-[560px]">
+            <p className="mt-3 sm:mt-4 text-base lg:text-lg leading-relaxed text-slate-600 max-w-[560px]">
               SkillSync AI connects students, companies and government through real-time skill intelligence.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/roles" className="inline-flex items-center gap-2 bg-[#0B2447] text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-[#12325f] transition">
+            <div className="mt-6 flex flex-col sm:flex-row flex-wrap gap-3">
+              <Link to="/roles" className="inline-flex items-center justify-center gap-2 bg-[#0B2447] text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-[#12325f] transition shadow-xs w-full sm:w-auto">
                 Explore Platform <ArrowRight size={16}/>
               </Link>
-              <a href="#how" className="inline-flex items-center gap-2 bg-white border border-slate-200 px-6 py-3 rounded-full text-sm font-semibold text-slate-700 hover:bg-slate-50">
+              <a href="#how" className="inline-flex items-center justify-center gap-2 bg-white border border-slate-200 px-6 py-3 rounded-full text-sm font-semibold text-slate-700 hover:bg-slate-50 transition w-full sm:w-auto">
                 <Play size={16} className="text-slate-500"/> See How It Works
               </a>
             </div>
 
-            <div className="mt-8 grid grid-cols-4 gap-3 max-w-[520px]">
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 max-w-[520px]">
               {[
                 { v:"12,450", l:"Students" },
                 { v:"186", l:"Companies" },
                 { v:"742", l:"Skills Tracked" },
                 { v:"94", l:"Emerging Skills" },
               ].map(s=>(
-                <div key={s.l} className="bg-white border border-slate-200 rounded-xl px-3 py-3 text-center">
-                  <div className="text-[18px] font-extrabold text-[#0B2447]">{s.v}</div>
-                  <div className="text-[11px] font-semibold tracking-wide text-slate-500 uppercase">{s.l}</div>
+                <div key={s.l} className="bg-white border border-slate-200 rounded-xl px-3 py-3 text-center shadow-xs">
+                  <div className="text-base sm:text-[18px] font-extrabold text-[#0B2447]">{s.v}</div>
+                  <div className="text-[10px] sm:text-[11px] font-semibold tracking-wide text-slate-500 uppercase mt-0.5">{s.l}</div>
                 </div>
               ))}
             </div>
